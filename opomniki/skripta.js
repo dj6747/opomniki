@@ -18,12 +18,26 @@ window.addEventListener('load', function() {
 	setInterval(posodobiOpomnike, 1000);
 	
 	
+	var dodajOpomnik = function(event) {
+		var nazivEl = document.querySelector("#naziv_opomnika");
+		var casEl = document.querySelector("#cas_opomnika");
+		document.querySelector("#opomniki").innerHTML += "<div class='opomnik'>\
+            <div class='naziv_opomnika'>"+nazivEl.value+"</div>\
+            <div class='cas_opomnika'> Opomnik čez <span>"+casEl.value+"</span> sekund.</div></div>"
+            nazivEl.value = "";
+            casEl.value = "";
+		
+	};
+	
+	document.querySelector("#dodajGumb").addEventListener("click", dodajOpomnik);
+	
+	
 	var izvediPrijavo = function(event) {
 		var ime = document.querySelector("#uporabnisko_ime").value;
 		document.querySelector("#uporabnik").innerHTML = ime;
 		document.querySelector(".pokrivalo").style.display = "none";
 	
-	}
+	};
 	
 	document.querySelector("#prijavniGumb").addEventListener("click", izvediPrijavo);
 	
